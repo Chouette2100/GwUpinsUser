@@ -1,0 +1,2 @@
+SELECT u.userno, u.user_name, u.ts, u.irank, u.`rank` FROM user u JOIN eventuser eu ON u.userno = eu.userno JOIN event e ON eu.eventid = e.eventid WHERE NOW() BETWEEN e.starttime AND e.endtime AND u.ts  < NOW()-INTERVAL 1 MONTH ORDER BY ts LIMIT 10
+SELECT * FROM user WHERE ts BETWEEN '2010-01-01' AND  NOW()-INTERVAL 1 MONTH ORDER BY ts LIMIT 5

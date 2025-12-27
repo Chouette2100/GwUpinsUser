@@ -1,0 +1,1 @@
+SELECT * FROM user WHERE irank = 0 ORDER BY ts LIMIT 10

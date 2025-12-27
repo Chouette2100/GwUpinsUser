@@ -21,9 +21,10 @@ import (
 
 /*
 0000000 最初のバージョン
+0000100 CheckEqIrankZero.go, CheckOldData.go を追加する
 */
 
-var Version = "0000000"
+var Version = "0000100"
 
 // GwUpinsUser: A Go application to add new users via HTTP requests with worker pool and rate limiting.
 func main() {
@@ -85,6 +86,9 @@ func main() {
 
 	// ワーカープールを起動 (例: 5つのワーカー)
 	StartWorkerPool(5)
+
+	go CheckEqIrankZero()
+	go CheckOldData()
 
 	// HTTPハンドラの設定
 	http.HandleFunc("/AddNewUser", AddNewUserHandler)
